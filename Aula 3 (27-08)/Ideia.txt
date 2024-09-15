@@ -1,0 +1,50 @@
+Gerenciador de eventos
+- O gerenciador será utilizado para organizar os eventos em uma linha do tempo, mostrando início do evento e final, os eventos podem começar em um dia e terminar em outro, não serão eventos de apenas um dia.
+
+tabela evento terá:
+nome String
+responsavel String
+data_inicio: timestamp
+data_fim: timestamp
+qtd_pessoas: int
+descricao: String
+
+
+Requisitos funcionais:
+
+- Fazer login
+
+- Adicionar, editar e remover um evento
+
+- Gerar relatórios mensais sobre os eventos
+
+
+
+
+
+
+-----------------------------------
+
+
+Gerenciador de condomínios
+- Com o gerenciador o usuário poderá adicionar blocos, apartamentos para esses blocos e residentes para os apartamentos, terá uma tela de login, uma tela listando todos os blocos e uma tela listando
+os residentes com suas informações naquele bloco específico.
+
+- tabela bloco
+numero: int
+
+- tabela apartamento
+bloco: Bloco
+numero: int
+
+- tabela residente
+nome: String
+apartamento: Apartamento
+data nascimento: Date
+cpf: String
+email: String
+foto?
+
+- funcionalidade extra: gerar um arquivo excel listando todos os residentes e seus apartamentos de um bloco ou de todos os blocos.
+
+objetivo é facilitar a criação e administração de residentes e blocos

@@ -1,0 +1,521 @@
+{
+	"info": {
+		"_postman_id": "f588109f-6a86-4be0-a5ef-988877e26198",
+		"name": "curso_typeorm",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14936223"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_API}}/users",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "itemsPerPage",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "orderBy",
+									"value": "email",
+									"disabled": true
+								},
+								{
+									"key": "orderDirection",
+									"value": "DESC",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET USER",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJabGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRmVsaXBlIiwiZW1haWwiOiJudW5lc2ZiM0BnbWFpbC5jb20iLCJpYXQiOjE3MDg2MjQxMjQsImV4cCI6MTcwODYyNzcyNH0.H0rg8DEVARRnT8d7WLtUoK7uR3Z8uZ5-xvZN6o3rO_s",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL_API}}/users/5",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"users",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL_API}}/users/2",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Felipe 1\",\r\n    \"email\": \"nunesfb11@gmail.com\",\r\n    \"password\": \"12345678\",\r\n    \"birth_date\": \"1990-02-02\",\r\n    \"active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_API}}/users",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Felipe 2\",\r\n    \"email\": \"nunesfb@gmail.com\",\r\n    \"password\": \"12345678\",\r\n    \"birth_date\": \"1990-02-02\",\r\n    \"active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_API}}/users/2",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AUTH",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"nunesfb3@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_API}}/users/auth",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"users",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Address",
+			"item": [
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"street\": \"Rua Z\",\r\n    \"city\": \"Cidade Z\",\r\n    \"state\": \"ZZ\",\r\n    \"id_user\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_API}}/address",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_API}}/address",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"address"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Projects",
+			"item": [
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Projeto y\",\r\n    \"description\": \"Projeto muito legal 2\",\r\n    \"start_at\": \"2024-02-04\",\r\n    \"end_at\": \"2024-02-08\",\r\n    \"active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_API}}/projects",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_API}}/projects",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET PROJECT",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_API}}/projects/2",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"projects",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL_API}}/projects/2",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"projects",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UsersProjects",
+			"item": [
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_user\": 6,\r\n    \"id_project\": 1,\r\n    \"hours_worked\": 30\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_API}}/usersprojects",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"usersprojects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_user\": 6,\r\n    \"id_project\": 1,\r\n    \"hours_worked\": 40\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_API}}/usersprojects/1",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"usersprojects",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL_API}}/usersprojects/1",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"usersprojects",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_API}}/usersprojects",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"usersprojects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET PROJECT",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_API}}/usersprojects/1",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"usersprojects",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE ALL",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\": {\r\n        \"name\": \"teste transaction 3\",\r\n        \"email\": \"nunesfb777@teste.com\",\r\n        \"password\": \"123456\",\r\n        \"birth_date\": \"1990-04-06\",\r\n        \"active\": true\r\n    },\r\n    \"project\": {\r\n        \"name\": \"teste transaction 777\",\r\n        \"description\": \"descricao 3\",\r\n        \"start_at\": \"2024-01-02\",\r\n        \"end_at\": \"2024-01-30\",\r\n        \"active\": false\r\n    },\r\n    \"user_project\": {\r\n        \"hours_worked\": 70\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_API}}/usersprojects/createall",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"usersprojects",
+								"createall"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_API}}/profiles",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"profiles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"about\": \"teste about 2\",\r\n    \"education\": \"teste education 2\",\r\n    \"career\": \"teste career 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_API}}/profiles",
+							"host": [
+								"{{URL_API}}"
+							],
+							"path": [
+								"profiles"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL_API",
+			"value": "http://localhost:3333",
+			"type": "string"
+		}
+	]
+}
