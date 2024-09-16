@@ -6,6 +6,7 @@ interface Game {
   releaseDate: string;
   rating: string;
   developer: string;
+  trailer: string;
   ratingScore: number;
   image: string;
 }
@@ -20,6 +21,7 @@ const games: Game[] = [
     rating: "Mature",
     developer: "CD Projekt Red",
     ratingScore: 4,
+    trailer: "https://www.youtube.com/watch?v=c0i88t0Kacs",
     image:
       "https://cdn1.epicgames.com/offer/14ee004dadc142faaaece5a6270fb628/EGS_TheWitcher3WildHuntCompleteEdition_CDPROJEKTRED_S1_2560x1440-82eb5cf8f725e329d3194920c0c0b64f",
   },
@@ -32,6 +34,7 @@ const games: Game[] = [
     rating: "Mature",
     developer: "Rockstar Games",
     ratingScore: 5,
+    trailer: "https://www.youtube.com/watch?v=gmA6MrX81z4",
     image:
       "https://store-images.s-microsoft.com/image/apps.58752.68182501197884443.ac728a87-7bc1-4a0d-8bc6-0712072da93c.0cf58754-9802-46f8-8557-8d3ff32a627a?q=90&w=480&h=270",
   },
@@ -44,6 +47,7 @@ const games: Game[] = [
     rating: "Everyone",
     developer: "Nintendo",
     ratingScore: 2,
+    trailer: "https://www.youtube.com/watch?v=zw47_q9wbBE",
     image:
       "https://assets.nuuvem.com/image/upload/v1/products/5e49d770d597ec0f96e130bd/sharing_images/tmffdu3gugeb5al41qil.jpg",
   },
@@ -56,6 +60,7 @@ const games: Game[] = [
     rating: "Teen",
     developer: "Epic Games",
     ratingScore: 4,
+    trailer: "https://www.youtube.com/watch?v=5uE0XFJSVZA",
     image:
       "https://cdn2.unrealengine.com/25br-s25-egs-launcher-pdp-2560x1440-alt-logo-2560x1440-130a7d39cc26.jpg",
   },
@@ -68,6 +73,7 @@ const games: Game[] = [
     rating: "Mature",
     developer: "CD Projekt Red",
     ratingScore: 1,
+    trailer: "https://www.youtube.com/watch?v=8X2kIfS6fb8",
     image:
       "https://cyberpunk-static.qtlglb.com/build/images/social-thumbnail-en-ddcf4d23.jpg",
   },

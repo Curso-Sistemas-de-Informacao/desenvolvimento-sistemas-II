@@ -1,23 +1,60 @@
-import { StyleSheet, Text, View, Image, TextInput, FlatList } from "react-native";
+import { StyleSheet, Text, View, Image, TextInput, FlatList, Modal, TouchableOpacity } from "react-native";
 import { useState } from "react";
 import Game from "./src/data/games";
+import { WebView } from 'react-native-webview';
 
 export default function App() {
   const [jogos, setJogos] = useState(Game);
-  const [filtro, setFiltro] = useState()
+  const [filtro, setFiltro] = useState("")
+  const [modalVisivel, setModalVisivel] = useState(false)
+  const [jogoSelecionado, setJogoSelecionado] = useState<any>(null);
+
+  
+  const jogosFiltrados = filtro === "" ? jogos : jogos.filter(jogo =>
+    jogo.name.toLowerCase().includes(filtro.toLowerCase())
+  );
 
   return (
+
     <View style={styles.container}>
+        <Modal 
+        visible={modalVisivel}
+        onRequestClose={() => setModalVisivel(false)}
+        transparent={true}
+        animationType="slide"
+        >
+        <View style={styles.modalOverlay}>
+        <View style={styles.modalContent}>
+          {jogoSelecionado && (
+            <View>
+              <Text style={styles.modalTitle}>{jogoSelecionado.name}</Text>
+              <Text>{jogoSelecionado.trailer}</Text>
+              <TouchableOpacity onPress={() => setModalVisivel(false)} >
+                <Text style={styles.closeButton}>Fechar</Text>
+              </TouchableOpacity>
+            </View>
+          )}
+        </View>
+        </View>
+      </Modal>
+
+
       <View style={styles.header}>
         <Text>App Games</Text>
-        <TextInput value="" />
+        <TextInput value={filtro} onChangeText={text => setFiltro(text)} placeholder="Digite o nome de algum jogo"/>
       </View>
       <View style={styles.content}>
-          <FlatList
-          data={jogos}
+        <FlatList
+          data={jogosFiltrados}
           renderItem={({ item }) => (
-            <View style={styles.gameItem}>
-              <Image source={{ uri: item.image}} style={styles.img} />
+            <TouchableOpacity 
+              style={styles.gameItem} 
+              onPress={() => {
+                setJogoSelecionado(item); 
+                setModalVisivel(true);    
+              }}
+            >
+              <Image source={{ uri: item.image }} style={styles.img} />
               <Text>Nome: {item.name}</Text>
               <Text>Plataforma: {item.platform}</Text>
               <Text>Gênero: {item.genre}</Text>
@@ -25,11 +62,12 @@ export default function App() {
               <Text>Classificação: {item.rating}</Text>
               <Text>Desenvolvedora: {item.developer}</Text>
               <Text>{item.ratingScore}</Text>
-            </View>
+            </TouchableOpacity>
           )}
           keyExtractor={item => item.id.toString()}
-          />
+        />
       </View>
+
       <View style={styles.footer}>
         <Text>Footer</Text>
       </View>
@@ -73,6 +111,31 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: "center",
     borderWidth: 2,
+  },
+  modalTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 10,
+  },
+  modalOverlay: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0,0,0,0.5)",
+  },
+
+  modalContent: {
+    width: 300, 
+    padding: 20,
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    alignItems: "center",
+  },
+  closeButton: {
+    color: "blue",
+    fontWeight: "bold",
+    marginTop: 20,
+    textAlign: "center",
   },
 
   footer: {
