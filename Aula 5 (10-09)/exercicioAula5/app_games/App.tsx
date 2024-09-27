@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Image, TextInput, FlatList, Modal, TouchableOpacity } from "react-native";
 import { useState } from "react";
 import Game from "./src/data/games";
-import { WebView } from 'react-native-webview';
+import YoutubePlayer from "react-native-youtube-iframe";
 
 export default function App() {
   const [jogos, setJogos] = useState(Game);
@@ -12,7 +12,7 @@ export default function App() {
   
   const jogosFiltrados = filtro === "" ? jogos : jogos.filter(jogo =>
     jogo.name.toLowerCase().includes(filtro.toLowerCase())
-  );
+  ).sort((a, b) => a.name.localeCompare(b.name));
 
   return (
 
@@ -28,7 +28,12 @@ export default function App() {
           {jogoSelecionado && (
             <View>
               <Text style={styles.modalTitle}>{jogoSelecionado.name}</Text>
-              <Text>{jogoSelecionado.trailer}</Text>
+              <YoutubePlayer
+                  height={300} // Aumentar a altura para um tamanho maior
+                  width={300} // Aumentar a largura para ocupar a tela de maneira adequada
+                  play={false}
+                  videoId={jogoSelecionado.trailer.split("v=")[1].substring(0, 11)}
+                />
               <TouchableOpacity onPress={() => setModalVisivel(false)} >
                 <Text style={styles.closeButton}>Fechar</Text>
               </TouchableOpacity>
